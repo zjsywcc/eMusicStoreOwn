@@ -2,15 +2,33 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:beans="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd  http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
-    
+
     <context:component-scan base-package="com.emusicstore"/>
 
     <mvc:annotation-driven/>
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <beans:property name="order" value="2"/>
         <property name="prefix" value="/WEB-INF/views/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+
+    <!-- Freemarker view resolver -->
+    <beans:bean id="freemarkerConfig"
+                class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <beans:property name="templateLoaderPath" value="/WEB-INF/views/ftl"/>
+    </beans:bean>
+
+    <beans:bean id="freemarkerViewResolver"
+                class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <beans:property name="order" value="1"/>
+        <beans:property name="cache" value="true"/>
+        <beans:property name="prefix" value=""/>
+        <beans:property name="suffix" value=".ftl"/>
+    </beans:bean>
+
+
+    <mvc:resources mapping="/resources/**" location="/WEB-INF/resources/"/>
 </beans>
