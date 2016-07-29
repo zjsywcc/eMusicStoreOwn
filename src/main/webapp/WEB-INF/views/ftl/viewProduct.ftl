@@ -1,10 +1,5 @@
 <#include "template/header.ftl">
 
-
-
-
-
-
 <div class="container-wrapper">
     <div class="container">
         <div class="page-header">
