@@ -1,3 +1,5 @@
+<#import "/spring.ftl" as spring/>
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -12,6 +14,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/resources/css/main.css" rel="stylesheet">
 
 
 

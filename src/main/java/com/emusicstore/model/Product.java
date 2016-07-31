@@ -1,9 +1,8 @@
 package com.emusicstore.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.persistence.*;
 
 /**
  * Created by wcc on 2016/7/29.
@@ -13,7 +12,7 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String productId;
+    private int productId;
     private String productName;
     private String productCategory;
     private String productDescription;
@@ -23,11 +22,14 @@ public class Product {
     private int unitInStock;
     private String productManufacturer;
 
-    public String getProductId() {
+    @Transient
+    private MultipartFile productImage;
+
+    public int getProductId() {
         return productId;
     }
 
-    public void setProductId(String productId) {
+    public void setProductId(int productId) {
         this.productId = productId;
     }
 
@@ -93,5 +95,13 @@ public class Product {
 
     public void setProductManufacturer(String productManufacturer) {
         this.productManufacturer = productManufacturer;
+    }
+
+    public MultipartFile getProductImage() {
+        return productImage;
+    }
+
+    public void setProductImage(MultipartFile productImage) {
+        this.productImage = productImage;
     }
 }

@@ -29,6 +29,10 @@
         <beans:property name="cache" value="true"/>
         <beans:property name="prefix" value=""/>
         <beans:property name="suffix" value=".ftl"/>
+        <property name="exposeSpringMacroHelpers" value="true"/>
+        <property name="exposeRequestAttributes" value="true"/>
+        <property name="exposeContextBeansAsAttributes" value="true"/>
+        <property name="exposeSessionAttributes" value="true"/>
     </beans:bean>
 
     <mvc:resources mapping="/resources/**" location="/WEB-INF/resources/"/>

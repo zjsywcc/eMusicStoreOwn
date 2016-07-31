@@ -24,14 +24,16 @@
                 <th></th>
             </tr>
             </thead>
-        <#if products ??><#list products as list>
+        <#if products ??><#list products as product>
             <tr>
-                <td><img src="#" alt="image"/></td>
-                <td>${list.productName}</td>
-                <td>${list.productCategory}</td>
-                <td>${list.productCondition}</td>
-                <td>${list.productPrice} USD</td>
-                <td><a href="/productList/viewProduct/${list.productId}"><span class="glyphicon glyphicon-info-sign"></span></a>
+                <td><img src="/resources/images/${product.productId}.png" alt="image" style="width:100%"/></td>
+                <td>${product.productName!""}</td>
+                <td>${product.productCategory!""}</td>
+                <td>${product.productCondition!""}</td>
+                <td>${product.productPrice!""} USD</td>
+                <td><a href="/productList/viewProduct/${product.productId}"><span class="glyphicon glyphicon-info-sign"></span></a>
+                    <a href="/admin/productInventory/deleteProduct/${product.productId}"><span class="glyphicon glyphicon-remove"></span></a>
+                    <a href="/admin/productInventory/editProduct/${product.productId}"><span class="glyphicon glyphicon-pencil"></span></a>
                 </td>
             </tr>
         </#list></#if>
