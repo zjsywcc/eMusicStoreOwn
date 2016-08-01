@@ -17,7 +17,7 @@
 
             <div class="form-group">
                 <label for="name">Name</label>
-                <@spring.bind "product.productName" />
+                <@spring.bind "product.productName" /><#if spring.status.error><@spring.showErrors "" "color: #ff0000"/></#if>
                 <input id="name" class="form-control" name="${spring.status.expression}" value="${spring.status.value?default("")}"/>
             </div>
 
@@ -34,7 +34,7 @@
 
             <div class="form-group">
                 <label for="price">Price</label>
-                <@spring.bind "product.productPrice" />
+                <@spring.bind "product.productPrice" /><#if spring.status.error><@spring.showErrors "" "color: #ff0000"/></#if>
                 <input id="price" class="form-control" name="${spring.status.expression}" value="${spring.status.value?default("")}"/>
             </div>
 
@@ -50,7 +50,7 @@
 
             <div class="form-group">
                 <label for="unitInStock">Unit In Stock</label>
-                <@spring.bind "product.unitInStock" />
+                <@spring.bind "product.unitInStock" /><#if spring.status.error><@spring.showErrors "" "color: #ff0000"/></#if>
                 <input id="unitInStock" class="form-control" name="${spring.status.expression}" value="${spring.status.value?default("")}"/>
             </div>
 
