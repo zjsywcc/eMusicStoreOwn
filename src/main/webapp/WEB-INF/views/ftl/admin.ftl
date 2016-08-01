@@ -7,7 +7,11 @@
 
             <p class="lead">This is the adminstrator page!</p>
         </div>
-
+        <#if currentUser ??>
+            <h2>
+                Welcome: ${currentUser} | <a href="/j_spring_security_logout">Logout</a>
+            </h2>
+        </#if>
         <h3>
             <a href="/admin/productInventory">Product Inventory</a>
         </h3>

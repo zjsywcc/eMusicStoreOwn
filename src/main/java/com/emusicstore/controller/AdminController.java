@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.security.Principal;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,7 +40,9 @@ public class AdminController {
 
 
     @RequestMapping("/admin")
-    public String adminPage() {
+    public String adminPage(Model model, Principal principal) {
+        final String currentUser = principal.getName();
+        model.addAttribute("currentUser", currentUser);
         return "admin";
     }
 
