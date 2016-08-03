@@ -8,7 +8,7 @@
             <p class="lead">Here is the detail information of the product!</p>
         </div>
 
-        <div class="container">
+        <div class="container" ng-app="cartApp">
             <div class="row">
                 <div class="col-md-5">
                     <img src="/resources/images/${product.productId}.png" alt="image" style="width:100%"/>
@@ -27,6 +27,8 @@
                         <strong>Condition</strong>: ${product.productCondition}
                     </p>
                     <h4>${product.productPrice} USD</h4>
+                    <br>
+                    <#assign "role" >
                 </div>
             </div>
         </div>

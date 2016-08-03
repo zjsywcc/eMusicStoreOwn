@@ -12,6 +12,8 @@
 
     <title>My Musci Store</title>
 
+    <!-- Angular JS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
     <!-- Bootstrap core CSS -->
     <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
