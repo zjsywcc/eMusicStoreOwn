@@ -28,11 +28,20 @@
                     </p>
                     <h4>${product.productPrice} USD</h4>
                     <br>
-                    <#assign "role" >
+                    <#if currentUser ??><#assign role="${currentUser}" /></#if>
+                    <#assign url="/productList"/>
+                    <#if role ??><#if role="admin">
+                        <#assign url="/admin/productInventory"/>
+                    </#if></#if>
+                    <p ng-controller="cartCtrl">
+                        <a href="${url}" class="btn btn-default">Back</a>
+                        <a href="#" class="btn btn-warning btn-lg" ng-click="addToCart(${product.productId})"><span class="glyphicon glyphicon-shopping-cart"></span>Order Now</a>
+                        <a href="/cart" class="btn btn-default"><span class="glyphicon glyphicon-hand-right"></span>View Cart</a>
+                    </p>
                 </div>
             </div>
         </div>
 
 
-
+<script src="/resources/js/controller.js"/>
 <#include "template/footer.ftl">

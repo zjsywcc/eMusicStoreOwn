@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.security.Principal;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -50,9 +51,15 @@ public class HomeController {
     }
 
     @RequestMapping("/productList/viewProduct/{productId}")
-    public String viewProduct(@PathVariable("productId") int productId, Model model) throws IOException {
+    public String viewProduct(@PathVariable("productId") int productId, Model model, Principal principal) throws IOException {
         Product product = productDao.getProductById(productId);
         model.addAttribute(product);
+        if (principal != null) {
+            final String currentUser = principal.getName();
+            if (currentUser != null) {
+                model.addAttribute("currentUser", currentUser);
+            }
+        }
         return "viewProduct";
     }
 

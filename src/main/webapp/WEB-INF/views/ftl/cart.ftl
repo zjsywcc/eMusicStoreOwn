@@ -2,7 +2,7 @@
 <div class="container-wrapper">
     <div class="container">
         <section>
-            <div class="jumboron">
+            <div class="jumbotron">
                 <div class="container">
                     <h1>Cart</h1>
 
@@ -14,7 +14,7 @@
         <section class="container" ng-app="cartApp">
             <div ng-controller="cartCtrl" ng-init="initCartId('${cartId}')">
                 <div>
-                    <a class="btn btn-danger pull-left"><span class="glyphicon glyphicon-remove-sign"></span>Clear Cart</a>
+                    <a class="btn btn-danger pull-left" ng-click="clearCart()"><span class="glyphicon glyphicon-remove-sign"></span>Clear Cart</a>
                 </div>
 
                 <table class="table table-hover">
@@ -46,4 +46,5 @@
         </section>
     </div>
 </div>
+<script src="/resources/js/controller.js"></script>
 <#include "template/footer.ftl">

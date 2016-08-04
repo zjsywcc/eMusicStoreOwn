@@ -5,6 +5,7 @@ import com.emusicstore.dao.ProductDao;
 import com.emusicstore.model.Cart;
 import com.emusicstore.model.CartItem;
 import com.emusicstore.model.Product;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -26,9 +27,13 @@ public class CartController {
     @Autowired
     private ProductDao productDao;
 
-    @RequestMapping(value="/{cartId}")
+    private static final Logger logger = Logger.getLogger(CartController.class);
+
+
+    @RequestMapping(value="/{cartId}", method = RequestMethod.GET)
     public @ResponseBody
     Cart read(@PathVariable(value = "cartId") String cartId) {
+        logger.error("read cartId: "+cartId);
         return cartDao.read(cartId);
     }
 
@@ -48,6 +53,7 @@ public class CartController {
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void addItem(@PathVariable(value = "productId") Integer productId, HttpServletRequest request) {
         String sessionId = request.getSession(true).getId();
+        logger.error("add sessionId: "+sessionId);
         Cart cart = cartDao.read(sessionId);
         if(cart == null) {
             cart = cartDao.create(new Cart(sessionId));
